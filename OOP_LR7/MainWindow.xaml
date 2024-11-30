@@ -1,0 +1,69 @@
+﻿<Window x:Class="OOP_LR7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Менеджер списков" Height="500" Width="800"
+        Background="#1E1E2F" FontFamily="Segoe UI">
+    <Grid>
+        <TextBlock Text="Менеджер списков" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+        <Grid Margin="50,80,50,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            
+            
+            <Border Background="#2D2D44" CornerRadius="10" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Доступные товары" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+                    <TextBox Name="AvailableSearchBox" Width="200" Margin="0,0,0,10" 
+                             Background="#3C3C57" ToolTip="Поиск по товарам" Foreground="White" BorderBrush="Gray" TextChanged="AvailableSearchBox_TextChanged"/>
+                    <ListBox Name="AvailableItemsList" Background="#3C3C57" Foreground="White" 
+                             BorderThickness="0" Height="200" SelectionMode="Multiple" AllowDrop="True" 
+                             PreviewMouseDown="AvailableItemsList_PreviewMouseDown"
+                             DragEnter="AvailableItemsList_DragEnter"
+                             DragOver="AvailableItemsList_DragOver"
+                             Drop="AvailableItemsList_Drop">
+                    </ListBox>
+                    <TextBlock Name="AvailableCountText" FontSize="14" Foreground="White" Margin="0,10" />
+                </StackPanel>
+            </Border>
+
+            
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,0">
+                <Button Content=">>" Width="70" Height="40" Click="MoveToSelected_Click" Margin="0,10" 
+                        Background="#6A5ACD" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+                <Button Content="&lt;&lt;" Width="70" Height="40" Click="MoveToAvailable_Click" Margin="0,10" 
+                        Background="#6A5ACD" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+
+                <Button Content="Сохранить" Width="70" Height="40" Click="SaveState_Click" Margin="0,10"
+                        Background="#FF357204" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+                <Button Content="Загрузить" Width="70" Height="40" Click="LoadState_Click" Margin="0,10"
+                        Background="#FF0F730F" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+                <Button Content="Удалить" Width="70" Height="40" Click="RemoveSelected_Click" Margin="0,10" 
+                        Background="#FF6347" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+                <Button Content="Сбросить" Width="70" Height="40" Click="ResetState_Click" Margin="0,10"
+                        Background="#FF6347" Foreground="White" FontWeight="Bold" BorderThickness="0" />
+            </StackPanel>
+
+            
+            <Border Background="#2D2D44" CornerRadius="10" Padding="10" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Text="Выбранные товары" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+                    <TextBox Name="SelectedSearchBox" Width="200" Margin="0,0,0,10" 
+                             Background="#3C3C57" Foreground="White" BorderBrush="Gray" TextChanged="SelectedSearchBox_TextChanged"/>
+                    <ListBox Name="SelectedItemsList" Background="#3C3C57" Foreground="White" 
+                             BorderThickness="0" Height="200" SelectionMode="Multiple" AllowDrop="True"
+                             PreviewMouseDown="SelectedItemsList_PreviewMouseDown"
+                             DragEnter="SelectedItemsList_DragEnter"
+                             DragOver="SelectedItemsList_DragOver"
+                             Drop="SelectedItemsList_Drop">
+                    </ListBox>
+                    <TextBlock Name="SelectedCountText" FontSize="14" Foreground="White" Margin="0,10" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
